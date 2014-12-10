@@ -2,3 +2,10 @@
 1418224618 source:c:\users\nico_000\documents\github\kickasscopy\kickasscopy\main.cpp
 	<iostream>
 
+1418241049 source:e:\documents\github\kickasscopy\main.cpp
+	<iostream>
+	<string>
+	"windows.h"
+	<shellapi.h>
+	<fstream>
+
