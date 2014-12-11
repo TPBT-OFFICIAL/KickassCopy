@@ -1,0 +1,13 @@
+I've downloaded this Programm from http://sourceforge.net/projects/b-e-c/?source=typ_redirect
+I'm NOT the owner of this Software and don't have to do anything with it!
+
+
+Description:
+This simple tool allows you to change the extensions of files in a given directory (and subdirectories) from one type to another. 
+No fluff or overblown GUI; does what it says on the tin.
+
+
+License: Creative Commons Attribution Non-Commercial License V2.0
+Download Date: 11. Dezember 2014
+Uploader (Author): Java Swing
+
