@@ -11,7 +11,7 @@ unsigned int Header_deaph=0;
 const long double sysTime = time(0);
 const long double sysTimeMS = sysTime*1000;
 
-//Global Variables have to be Glabal!
+//Global variables have to be Glabal!
 unsigned long magnet_count=0;
 unsigned long magnet_count_temp=0;
 unsigned long magnet_clock;
@@ -23,6 +23,13 @@ unsigned long torrent_count_temp=0;
 unsigned long torrent_clock;
 unsigned int torrent_duplication_cont=0;
 unsigned int torrent_duplication_cont_temp=0;
+
+bool Get_all_Files_continue=false;
+unsigned long Get_all_Files_continue_count=0;
+unsigned long Get_all_Files_continue_count_temp=0;
+string Get_all_Files_continue_string="";
+unsigned long Get_all_Files_count;
+unsigned long Get_all_Files_count_temp;
 
 stringstream outfile_ss;
 
@@ -52,10 +59,26 @@ int main()
     remove("Magnet_Links.txt");
     remove("Torrent_Links_for_HTTrack.txt");
     dir="./kickass";
+    cout << "Check continue.txt file..." << endl;
+    ifstream infile ("continue.txt", ios::in|ios::binary);
+    if(infile)
+    {
+        getline(infile, Get_all_Files_continue_string);
+        Get_all_Files_continue=true;
+    }
+    infile.close();
     cout << "Preparing Clock..." << endl;
     clock_t start;
     magnet_clock = clock();
-    cout << "Start scaning...\n\n" << endl;
+    torrent_clock = clock();
+    if(Get_all_Files_continue==false)
+    {
+        cout << "Start scaning..." << endl;
+    } else {
+        cout << "Start searching check point..." << endl;
+    }
+    cout << "Please wait! This may take some time...\n\n" << endl;
+
     Get_all_Files(dir, dir.length(), 0);
     cout << "Saving..." << endl;
     dir="./temp/Magnet";
@@ -65,7 +88,10 @@ int main()
     dir="./temp";
     cout << "Deleting old temp files...\n\n\n" << endl;
     Get_all_Files(dir, dir.length(), 3);
+    //remove("continue.txt");
     cout << "Done!" << endl;
+    cout << "Press ENTER to close the program" << endl;
+    cin.get();
     return 0;
 }
 
@@ -107,7 +133,47 @@ void Get_all_Files(string dir, unsigned int Header_Basisphath_length, unsigned i
                     if(Option==0)
                     {
                         myfile_Get_all_Files.close();
-                        ScanFile(temp);
+                        Get_all_Files_count_temp++;
+                        //cout << Get_all_Files_count_temp << endl;
+                        if(Get_all_Files_count_temp==10000)
+                        {
+                            Get_all_Files_count+=Get_all_Files_count_temp;
+                            Get_all_Files_count_temp=0;
+                            ofstream outfile ("continue.txt", ios::out|ios::binary|ios::trunc);
+                            outfile << temp << endl;
+                            outfile.close();
+                            cout << "Saved check point!" << endl;
+                        }
+
+                        if(Get_all_Files_continue==false)
+                        {
+                           ScanFile(temp);
+                        } else {
+                            //cout << Get_all_Files_continue_string << endl;
+                            //cout << temp << endl;
+                            if(Get_all_Files_continue_string==temp)
+                            {
+                                Get_all_Files_continue_count+=Get_all_Files_continue_count_temp;
+                                cout << Get_all_Files_continue_count
+                                     << " files Scanned for finding the latest check point" << endl;
+                                Get_all_Files_continue_count_temp=0;
+                                Get_all_Files_continue=false;
+                                magnet_clock = clock();
+                                torrent_clock = clock();
+                                cout << "\n\n\nStart scaning..." << endl;
+                                cout << "Please wait! This may take some time...\n\n" << endl;
+                            } else {
+                                Get_all_Files_continue_count_temp++;
+                                if(Get_all_Files_continue_count_temp==10000)
+                                {
+                                    Get_all_Files_continue_count+=Get_all_Files_continue_count_temp;
+                                    cout << Get_all_Files_continue_count
+                                         << " files Scanned for finding the latest check point" << endl;
+                                    Get_all_Files_continue_count_temp=0;
+                                }
+                            }
+                        }
+
                     } else if(Option==1) {
                         ofstream outfile ("Magnet_Links.txt", ios::out|ios::binary|ios::app);
                         outfile << myfile_Get_all_Files.rdbuf();
@@ -145,6 +211,8 @@ void Get_all_Files(string dir, unsigned int Header_Basisphath_length, unsigned i
 
 void ScanFile(string path)
 {
+    //cout << path << endl;
+    //cin.get();
     string Find1="http://torcache.net/torrent/";
     string Find2="magnet:?xt=urn:btih:";
     string Torrent_URL;
@@ -215,9 +283,7 @@ void ScanFile(string path)
                     }
                 }
 
-                if(duplicate==false)
-                {
-                    torrent_count_temp++;
+                torrent_count_temp++;
                     if(torrent_count_temp==1000)
                     {
                         torrent_count+=torrent_count_temp;
@@ -233,6 +299,9 @@ void ScanFile(string path)
                         torrent_duplication_cont_temp=0;
                         torrent_clock = clock();
                     }
+
+                if(duplicate==false)
+                {
                     tempfile << Torrent_URL << '\n';
                 }
 
