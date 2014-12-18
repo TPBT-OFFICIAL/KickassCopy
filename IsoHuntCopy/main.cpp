@@ -25,7 +25,7 @@ int main()
     string parm;
     stringstream filename;
     ofstream outfile; //("IsoHunt.txt", ios::out|ios::binary|ios::trunc);
-    for(int pack=89;pack<10000;pack++)
+    for(int pack=1425;pack<10000;pack++)
     {
         cout << pack << endl;
         filename << "IsoHunt_Part" << pack << ".txt";
@@ -45,7 +45,7 @@ int main()
         parm=parm_ss.str();
         cout << parm << endl;
 
-        ShellExecute(0, "open", "wget64", parm.c_str(), 0, SW_SHOWMINIMIZED);
+        ShellExecute(0, "open", "wget64", parm.c_str(), 0, SW_HIDE);
         parm_ss.str("");
         parm_ss.clear();
         filename.str("");
@@ -54,7 +54,7 @@ int main()
         Get_all_Files(filename.str(), pack-60);
         filename.str("");
         filename.clear();
-        Sleep(30000);
+        Sleep(20000);
         //cin.get();
     }
 
