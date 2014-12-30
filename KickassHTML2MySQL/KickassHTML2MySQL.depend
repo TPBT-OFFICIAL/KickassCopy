@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1419632367 source:e:\documents\github\kickasscopy\kickasshtml2mysql\main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<sstream>
+	<cstring>
+	<stdlib.h>
+	<fstream>
+	<dirent.h>
+	<ctime>
+
