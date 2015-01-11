@@ -68,7 +68,7 @@ double clock_duration;
 //Header
 void Get_all_Files(string dir, unsigned int Header_Basisphath_length, unsigned int Option);
 void ScanFile(string path);
-void make_filestructure(string dir, unsigned char make_filestructure_deph);
+void make_filestructure(string dir, unsigned char max_deph, unsigned char make_filestructure_deph);
 
 
 
@@ -102,15 +102,13 @@ int main()
 
     cout << "Preparing HTML Scan...\n"
          << "Creating temporary directories..." << endl;
+
     string dir;
     mkdir("./temp");
-    cout << "Deleting old temp files..." << endl;
-
-
-    make_filestructure("./temp", 1);
+    make_filestructure("./temp", 1, 1); //The 3. Parameter always have to be 1!
     chdir("..");
 
-
+    cout << "Deleting old temp files..." << endl;
     remove("Kickass_DB_Dump.csv");
     dir="./kickass";
     cout << "Check continue.txt file..." << endl;
@@ -725,24 +723,25 @@ void ScanFile(string path)
 }
 
 
-void make_filestructure(string dir, unsigned char make_filestructure_deph)
+void make_filestructure(string dir, unsigned char max_deph, unsigned char make_filestructure_deph)
 {
     string c="  ";
+    chdir(dir.c_str());
     //cout << (int)make_filestructure_deph << endl;
     //system("cd");
     //system("pause");
 
-    chdir(dir.c_str());
+
     for(c.at(0)=48;c.at(0)<58;c.at(0)++)
     {
         mkdir(c.c_str());
 
-        if(make_filestructure_deph<1)
+        if(make_filestructure_deph<max_deph)
         {
             make_filestructure_deph++;
-            make_filestructure(c, make_filestructure_deph);
-            make_filestructure_deph--;
+            make_filestructure(c, max_deph, make_filestructure_deph);
             chdir("..");
+            make_filestructure_deph--;
         }
     }
 
@@ -750,14 +749,15 @@ void make_filestructure(string dir, unsigned char make_filestructure_deph)
     for(c.at(0)=97;c.at(0)<123;c.at(0)++)
     {
         mkdir(c.c_str());
-        if(make_filestructure_deph<1)
+        if(make_filestructure_deph<max_deph)
         {
             make_filestructure_deph++;
-            make_filestructure(c, make_filestructure_deph);
-            make_filestructure_deph--;
+            make_filestructure(c, max_deph, make_filestructure_deph);
             chdir("..");
+            make_filestructure_deph--;
         }
     }
     //make_filestructure_deph--;
     //chdir("..");
 }
+
