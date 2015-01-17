@@ -192,8 +192,43 @@ function ShowFeed_RSS($XmlRoot) {
 			}
 	}
     
+    $tags=strtok($category, " ");
+    switch ($tags) {
+    case "Anime":
+        $category_id=1;
+        break;
+    case "Applications":
+        $category_id=2;
+        break;
+    case "Games":
+        $category_id=3;
+        break;
+    case "XXX":
+        $category_id=4;
+        break;
+    case "Movies":
+        $category_id=5;
+        break;
+    case "Music":
+        $category_id=6;
+        break;
+    case "Other":
+        $category_id=7;
+        break;
+    case "TV":
+        $category_id=8;
+        break;
+    case "Books":
+        $category_id=9;
+        break;
+    default;
+        $category_id=7;
+        break;
+    }
+    
+    
     echo $title ."<br>";
-    echo $category ."<br>";
+    echo $category ." => category_id: " . $category_id . "<br>";
     echo $author ."<br>";
     echo $guid ."<br>";
     echo $pubDate ."<br>";
@@ -207,7 +242,7 @@ function ShowFeed_RSS($XmlRoot) {
     
 
     // Ausführen einer SQL-Anfrage
-    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,size,hash,created_at,scrape_date,seeders,leechers) VALUES ('\"" . addslashes($title) . "\"', '', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "')";
+    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,category_id,size,hash,created_at,scrape_date,seeders,leechers,tags) VALUES ('\"" . addslashes($title) . "\"', '', '" . $category_id . "', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "', '" . $tags . "')";
     mysql_query($query) or die("Anfrage fehlgeschlagen: " . mysql_error());
     
     
