@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<rss version="2.0">
+<channel>
+  <pubDate>Thu, 18 Dec 2008 09:36:17 +0100</pubDate>
+  <lastBuildDate>Thu, 18 Dec 2008 09:36:17 +0100</lastBuildDate>
+  <title>Gaijin.at</title>
+  <link>http://www.gaijin.at/</link>
+  <description>Kostenlose Programme, PHP-Scripts, Online-Tools, Anleitungen und Artikel zu den verschiedensten Themen rund um das Internet, Computer, Datensicherheit, Tipps und Tricks zu Windows XP</description>
+  <language>de</language>
+  <ttl>180</ttl>
+  <image>
+    <title></title>
+    <url></url>
+    <link></link>
+  </image>
+  <item>
+    <title>Historian 1.4.1</title>
+    <link>http://www.gaijin.at/dlhistorian.php</link>
+    <description>Historian liest Verlaufsdateien, Favoriten, Cookies und sonstige Dateien der gebräuchlichsten Webbrowser aus und exportiert diese in eine mit Microsoft Excel kompatible CSV-Tabelle oder in eine frei anpassbare Textdatei.</description>
+    <pubDate>Thu, 18 Dec 2008 09:36:17 +0100</pubDate>
+  </item>
+  <item>
+    <title>HTTP LogStat 1.1</title>
+    <link>http://www.gaijin.at/dlhttplogstat.php</link>
+    <description>HTTP LogStat analysiert die Protokolle eines Webservers und zeigt umfangreiche Statistiken an. Es werden Plain-Text und GZip-komprimierte Protokolldateien (NCSA Common und Combined access logs) unterstützt. Der Report wird in einer anpassbaren HTML-Seite ausgegeben.</description>
+    <pubDate>Mon, 15 Dec 2008 09:32:20 +0100</pubDate>
+  </item>
+  <item>
+    <title>NFReader 1.3.7</title>
+    <link>http://www.gaijin.at/dlnfreader.php</link>
+    <description>NFReader ist ein Feed-Reader, der RSS-, Atom- und RDF-Feeds unterstützt. Feeds und Gruppen von Feeds können in OPML-Dateien exportiert und aus diesen importiert werden.</description>
+    <pubDate>Sun, 14 Dec 2008 08:37:27 +0100</pubDate>
+  </item>
+  <item>
+    <title>DevProject Manager 1.6.5</title>
+    <link>http://www.gaijin.at/dldevproject.php</link>
+    <description>DevProject Manager ist eine Projektverwaltung für Freeware- und Open-Source Entwickler.</description>
+    <pubDate>Thu, 11 Dec 2008 08:39:44 +0100</pubDate>
+  </item>
+  <item>
+    <title>HTTP LogStat 1.0</title>
+    <link>http://www.gaijin.at/dlhttplogstat.php</link>
+    <description>HTTP LogStat analysiert die Protokolle eines Webservers und zeigt umfangreiche Statistiken an. Es werden Plain-Text und GZip-komprimierte Protokolldateien (NCSA Common und Combined access logs) unterstützt. Der Report wird in einer anpassbaren HTML-Seite ausgegeben.</description>
+    <pubDate>Sat, 6 Dec 2008 12:37:49 +0100</pubDate>
+  </item>
+  <item>
+    <title>RegistryReport 1.3.4</title>
+    <link>http://www.gaijin.at/dlregreport.php</link>
+    <description>RegistryReport ermittelt Informationen über das Betriebssystem, die installierte Software, die letzten Benutzeraktivitäten, die Benutzereinstellungen und viele andere Informationen, aus den Windows NT 5 Registry-Dateien "SYSTEM", "SOFTWARE", "SAM" und "NTUSER.DAT" (Windows 2000 / XP / 2003 / Vista).</description>
+    <pubDate>Thu, 4 Dec 2008 08:42:04 +0100</pubDate>
+  </item>
+  <item>
+    <title>PHP Suchmaschine 1.4.1</title>
+    <link>http://www.gaijin.at/scrphpsearch.php</link>
+    <description>Das PHP Suchscript durchsucht lokale Dateien auf dem Server nach den angegebenen Suchbegriffen und zeigt die Funde wie eine Internetsuchmaschine (etwa ähnlich wie Google) an. Es ist keine Indizierung erforderlich, die Suchfunktion benötigt keine Datenbank und ist immer auf dem neuesten Stand.</description>
+    <pubDate>Mon, 1 Dec 2008 11:21:36 +0100</pubDate>
+  </item>
+  <item>
+    <title>PHP Gästebuch 2.8</title>
+    <link>http://www.gaijin.at/scrphpgbook.php</link>
+    <description>Dieses Gästebuch speichert die Einträge in einer Textdatei und kommt so ohne MySQL oder einer anderen Datenbank aus. Mit einer CSS-Datei kann das Design an die eigene Homepage leicht angepasst werden und alle Pfadangaben können frei gewählt werden.</description>
+    <pubDate>Fri, 28 Nov 2008 09:49:55 +0100</pubDate>
+  </item>
+  <item>
+    <title>Phalanx 1.2</title>
+    <link>http://www.gaijin.at/dlphalanx.php</link>
+    <description>Phalanx ist ein leistungsstarker Anti-Spam-Filter für POP3-Konten, der unabhängig vom eingesetzten Mailprogramm arbeiten kann. Phalanx unterstützt bei der Anmeldung am Mailserver APOP (MD5) und sichere Verbindungen (SSL).</description>
+    <pubDate>Fri, 21 Nov 2008 17:34:54 +0100</pubDate>
+  </item>
+  <item>
+    <title>PHP FileList 1.5.0.1</title>
+    <link>http://www.gaijin.at/scrphpfilelist.php</link>
+    <description>Das PHP-Script FileList zeigt den Inhalt von Verzeichnissen in einer Tabelle an, wobei in Unterordner gewechselt und Dateien betrachtet bzw. heruntergeladen werden können.</description>
+    <pubDate>Wed, 5 Nov 2008 15:48:34 +0100</pubDate>
+  </item>
+</channel>
+</rss>
+
