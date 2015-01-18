@@ -242,7 +242,7 @@ function ShowFeed_RSS($XmlRoot) {
     
 
     // Ausführen einer SQL-Anfrage
-    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,category_id,size,hash,created_at,scrape_date,seeders,leechers,tags) VALUES ('\"" . addslashes($title) . "\"', '', '" . $category_id . "', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "', '" . $tags . "')";
+    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,category_id,size,hash,created_at,scrape_date,seeders,leechers,tags) VALUES ('" . addslashes($title) . "', '', '" . $category_id . "', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "', '" . $tags . "')";
     mysql_query($query) or die("Anfrage fehlgeschlagen: " . mysql_error());
     
     
