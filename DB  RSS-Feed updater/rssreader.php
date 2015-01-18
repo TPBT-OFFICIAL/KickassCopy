@@ -82,6 +82,7 @@ $mysql_password = '';
 $mysql_db = 'torrent';
 $mysql_table = 'update';
 
+
 // =============================================================================
   
 ?>
@@ -96,8 +97,8 @@ $mysql_table = 'update';
 <link rel=stylesheet type="text/css" href="rssreader.css">
 </head>
 <body>
-
 <h1>RSS Database updater for the OpenBay Project</h1>
+
 
 <?php
   ShowFeed($Feed_URL);
@@ -400,7 +401,8 @@ function ShowFeed_RDF($XmlRoot) {
   // Das Entfernen oder Ändern der nachfolgenden Zeile ist nur mit ausdrücklicher Genhmigung des Autors gestattet!
   echo "<br>";
   echo '<p>Powered by <a href="http://www.gaijin.at/" target="_blank"><b>RSS Reader</b></a> <small>(<a href="http://www.gaijin.at/" target="_blank">www.gaijin.at</a>)</small></p>';
-}
+  
+  }
 
 // #############################################################################
 
@@ -606,3 +608,8 @@ function ParseXmlFile($sFileName) {
 // #############################################################################
 
 ?>
+
+
+<script type="text/javascript">
+  setTimeout(function () { location.reload(true); }, 310000);
+</script>
