@@ -89,7 +89,7 @@ $mysql_table = 'update';
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<title>RSS Database updater</title>
+<title>RSS Kickass Database updater</title>
 <meta name="title" content="RSS Reader">
 <meta http-equiv="content-language" content="de-at">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
@@ -97,7 +97,7 @@ $mysql_table = 'update';
 <link rel=stylesheet type="text/css" href="rssreader.css">
 </head>
 <body>
-<h1>RSS Database updater for the OpenBay Project</h1>
+<h1>RSS Kickass Database updater for the OpenBay Project</h1>
 
 
 <?php
