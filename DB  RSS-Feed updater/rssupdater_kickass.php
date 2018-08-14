@@ -82,13 +82,14 @@ $mysql_password = '';
 $mysql_db = 'torrent';
 $mysql_table = 'update';
 
+
 // =============================================================================
   
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 <html>
 <head>
-<title>RSS Database updater</title>
+<title>RSS Kickass Database updater</title>
 <meta name="title" content="RSS Reader">
 <meta http-equiv="content-language" content="de-at">
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1">
@@ -96,8 +97,8 @@ $mysql_table = 'update';
 <link rel=stylesheet type="text/css" href="rssreader.css">
 </head>
 <body>
+<h1>RSS Kickass Database updater for the OpenBay Project</h1>
 
-<h1>RSS Database updater for the OpenBay Project</h1>
 
 <?php
   ShowFeed($Feed_URL);
@@ -242,7 +243,7 @@ function ShowFeed_RSS($XmlRoot) {
     
 
     // Ausführen einer SQL-Anfrage
-    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,category_id,size,hash,created_at,scrape_date,seeders,leechers,tags) VALUES ('\"" . addslashes($title) . "\"', '', '" . $category_id . "', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "', '" . $tags . "')";
+    $query = "INSERT IGNORE INTO " . $mysql_db . "." . $mysql_table . " (name,description,category_id,size,hash,created_at,scrape_date,seeders,leechers,tags) VALUES ('" . addslashes($title) . "', '', '" . $category_id . "', " . $contentLength . ", '" . $infoHash . "', '" . $pubDate . "', '" . $pubDate . "', '" . $seeds . "', '" . $peers . "', '" . $tags . "')";
     mysql_query($query) or die("Anfrage fehlgeschlagen: " . mysql_error());
     
     
@@ -400,7 +401,8 @@ function ShowFeed_RDF($XmlRoot) {
   // Das Entfernen oder Ändern der nachfolgenden Zeile ist nur mit ausdrücklicher Genhmigung des Autors gestattet!
   echo "<br>";
   echo '<p>Powered by <a href="http://www.gaijin.at/" target="_blank"><b>RSS Reader</b></a> <small>(<a href="http://www.gaijin.at/" target="_blank">www.gaijin.at</a>)</small></p>';
-}
+  
+  }
 
 // #############################################################################
 
@@ -606,3 +608,8 @@ function ParseXmlFile($sFileName) {
 // #############################################################################
 
 ?>
+
+
+<script type="text/javascript">
+  setTimeout(function () { location.reload(true); }, 310000);
+</script>
